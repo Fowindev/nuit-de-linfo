@@ -3,10 +3,12 @@ import { AppController } from './app.controller';
 import { LifeguardsModule } from './lifeguards/lifeguards.module';
 import { RescuesModule } from './rescues/rescues.module';
 import { AuthModule } from './auth/auth.module';
-import { UsersModule } from './users/users.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { getConnectionOptions } from 'typeorm';
 import { ConfigModule } from '@nestjs/config';
+import { JwtAuthGuard } from './auth/guards/jwt.guard';
+import { APP_GUARD } from '@nestjs/core';
+import { AdminModule } from './admin/admin.module';
 
 @Module({
   imports: [
@@ -19,8 +21,14 @@ import { ConfigModule } from '@nestjs/config';
     }),
     LifeguardsModule,
     RescuesModule,
-    UsersModule,
     AuthModule,
+    AdminModule,
+  ],
+  providers: [
+    {
+      provide: APP_GUARD,
+      useClass: JwtAuthGuard,
+    },
   ],
   controllers: [AppController],
 })
