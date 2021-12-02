@@ -38,7 +38,7 @@ for strPageAScrap in lstPagesAScrap:
             intRequestDone = -1
             objSoup = BeautifulSoup(objRequests.text, 'html.parser')
             for objLinkA in objSoup.find_all("a"):
-                if re.match(".*-[0-9][0-9][0-9][0-9]b\/$", objLinkA.get("href")) or re.match(".*[a-z][0-9][0-9][0-9][0-9]\/$", objLinkA.get("href")):
+                if re.match(".*-[0-9][0-9][0-9][0-9]b\/$", objLinkA.get("href")) or re.match(".*[a-z][0-9][0-9][0-9][0-9]\/$", objLinkA.get("href")) or re.match(".*-[0-9][0-9][0-9][0-9]B\/$", objLinkA.get("href")):
                     listeLiensSauvetages.append(objLinkA.get("href"))
         else:
             intRequestDone += 1
