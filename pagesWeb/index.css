@@ -49,24 +49,60 @@ body {
     text-align: center;
 }
 
+@media screen and (max-width: 1320px){
+
+    .navbar-link{
+        width: 100%;
+        height: 100%;
+        margin-right: 0px;
+    }
+
+    .navbar-link li {
+        list-style: none;
+        margin: 35px 30px 0px 0px;
+        text-align: center;
+    }
+
+    .navbar-right{
+        margin-top: 100px;
+        border-right: 2px solid #FFFF;
+        margin-right: 130px;
+        height: 250px;
+    }
+
+    .navbar-link li a{
+        font-size: 23px;
+    }
+}
+
 @media screen and (max-width: 860px){
     .boat img{
         width: 90%;
         height: auto;
         bottom: 0px;
     }
-}
-
-@media screen and (max-width: 502px){
 
     .title {
-        margin: 70px 0px 20px 80px;
+        margin: 40px 0px 20px 50px;
         width: 100px;
         text-align: left;
     }
 
     .title p{
-        font-size: 28px;
+        font-size: 30px;
+    }
+}
+
+@media screen and (max-width: 502px){
+
+    .title {
+        margin: 40px 0px 20px 30px;
+        width: 100px;
+        text-align: left;
+    }
+
+    .title p{
+        font-size: 25px;
     }
 
     .boat img{
@@ -74,4 +110,10 @@ body {
         height: auto;
         bottom: 0px;
     }
+
+    .navbar-right a{
+        font-size: 20px;
+        margin: 0;
+    }
+
 }
