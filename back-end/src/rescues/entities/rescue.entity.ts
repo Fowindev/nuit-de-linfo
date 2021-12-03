@@ -1,11 +1,4 @@
-import {
-  Column,
-  Entity,
-  JoinTable,
-  ManyToMany,
-  PrimaryGeneratedColumn,
-} from 'typeorm';
-import { Lifeguard } from 'src/lifeguards/entities/lifeguard.entity';
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class Rescue {
@@ -18,25 +11,21 @@ export class Rescue {
   @Column('string')
   title: string;
 
-  @Column('string')
-  date: string;
-
-  @Column('int8')
-  peopleRescued: number;
-
-  @Column('int8')
-  peopleDeceased: number;
-
-  @Column('text')
-  rawText?: string;
+  @Column({
+    type: 'string',
+    array: true,
+  })
+  dates: string[];
 
   @Column({
     type: 'string',
     array: true,
   })
-  unreferencedLifeguards?: string[];
+  images: string[];
 
-  @ManyToMany(() => Lifeguard, (lifeguard) => lifeguard.rescues)
-  @JoinTable()
-  lifeguards?: Lifeguard[];
+  @Column('string')
+  peopleRescued: string;
+
+  @Column('text')
+  rawText?: string;
 }

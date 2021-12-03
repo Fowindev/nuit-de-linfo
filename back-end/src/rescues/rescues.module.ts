@@ -4,6 +4,6 @@ import { RescuesController } from './rescues.controller';
 
 @Module({
   controllers: [RescuesController],
-  providers: [RescuesService]
+  providers: [RescuesService],
 })
 export class RescuesModule {}
