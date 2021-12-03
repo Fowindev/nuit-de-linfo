@@ -155,3 +155,55 @@ body {
         height: 250px;
     }
 }
+
+@media screen and (max-width: 502px){
+
+    .navbar {
+        width: 100%;
+        height: 110px;
+    }
+
+    .navbar-right{
+        display: none;
+    }
+
+    .main-content {
+        display: block;
+    }
+
+    .navbar-link{
+        width: 100%;
+        height: 100%;
+        margin-right: 0px;
+    }
+
+    .navbar-link li {
+        list-style: none;
+        margin: 35px 15px 0px 10px;
+        text-align: center;
+        float: left;  
+    }
+
+    .navbar-right{
+        float: left;
+        padding: 10px 0px;
+        margin-top: 40px;
+        border-right: 0px solid #FFFF;
+        border-left: 2px solid #FFFF;
+        margin-left: 50px;
+        margin-right: 0px;
+        height: 250px;
+    }
+
+    .navbar-link li img {
+        width: 25px;
+    }
+
+    .navbar-right a{
+        font-size: 23px;
+    }
+
+    .navbar-link li a{
+        font-size: 18px;
+    }
+}
