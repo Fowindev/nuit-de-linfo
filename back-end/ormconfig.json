@@ -1,5 +1,8 @@
 {
-  "type": "better-sqlite3",
-  "database": "database_dev.sqlite",
+  "type": "mariadb",
+  "host": "localhost",
+  "username": "root",
+  "password": "root",
+  "database": "ndi",
   "synchronize": true
 }

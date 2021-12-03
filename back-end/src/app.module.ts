@@ -1,14 +1,13 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
-import { LifeguardsModule } from './lifeguards/lifeguards.module';
 import { RescuesModule } from './rescues/rescues.module';
 import { AuthModule } from './auth/auth.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { getConnectionOptions } from 'typeorm';
 import { ConfigModule } from '@nestjs/config';
-import { JwtAuthGuard } from './auth/guards/jwt.guard';
-import { APP_GUARD } from '@nestjs/core';
 import { AdminModule } from './admin/admin.module';
+import { PeopleModule } from './people/people.module';
+import { APP_GUARD } from '@nestjs/core';
 
 @Module({
   imports: [
@@ -19,15 +18,15 @@ import { AdminModule } from './admin/admin.module';
           autoLoadEntities: true,
         }),
     }),
-    LifeguardsModule,
     RescuesModule,
     AuthModule,
     AdminModule,
+    PeopleModule,
   ],
   providers: [
     {
       provide: APP_GUARD,
-      useClass: JwtAuthGuard,
+      useClass: AuthSessionGuard,
     },
   ],
   controllers: [AppController],
