@@ -55,6 +55,12 @@ class monThread(Thread):
                         txtArticle += txtP.getText().strip() + "\n"
                     txtArticle.strip()
                     article["texte"] = txtArticle
+
+                    listeImages = []
+                    for image in objSoup.article.find_all("img"):
+                        listeImages.append(image.get("href"))
+                        print(image.get("href"))
+                    article["images"] = listeImages
                     
                     with lockData:
                         with open("./listeArticles.json", "r") as ficArticles:
