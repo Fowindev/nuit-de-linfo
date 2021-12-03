@@ -1,11 +1,12 @@
 import { Injectable } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
+import { JwtService } from '@nestjs/jwt';
 import { Strategy } from 'passport-github';
 import { VerifyCallback } from 'passport-oauth2';
 
 @Injectable()
 export class GithubStrategy extends PassportStrategy(Strategy, 'github') {
-  constructor() {
+  constructor(private jwtService: JwtService) {
     super({
       clientID: process.env.GITHUB_CLIENT_ID,
       clientSecret: process.env.GITHUB_CLIENT_SECRET,
@@ -19,12 +20,21 @@ export class GithubStrategy extends PassportStrategy(Strategy, 'github') {
     profile: Strategy.Profile,
     done: VerifyCallback,
   ) {
+    const { profileUrl } = profile;
+
     const user = {
-      email: profile.emails[0].value,
-      firstName: profile.name.givenName,
-      lastName: profile.name.familyName,
-      profileUrl: profile.profileUrl;
-    }
+      provider: 'github',
+      profileUrl,
+      accessToken,
+      token: this.jwtService.sign(
+        {
+          provider: 'github',
+          profileUrl,
+          accessToken,
+        },
+        { secret: process.env.JWT_SECRET },
+      ),
+    };
 
     done(null, user);
   }

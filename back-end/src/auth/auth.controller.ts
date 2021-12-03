@@ -1,17 +1,33 @@
-import { Controller, Get, Req, UseGuards } from '@nestjs/common';
-import { AuthGuard } from '@nestjs/passport';
+import { Controller, Get, Headers, Req, UseGuards } from '@nestjs/common';
+import { JwtService } from '@nestjs/jwt';
+import { Public } from './decorators/public.decorator';
+import { GithubAuthGuard } from './guards/github.guard';
 
-@Controller('/auth')
+@Controller('auth')
 export class AuthController {
-  @Get('/github')
-  @UseGuards(AuthGuard('github'))
+  constructor(private jwtService: JwtService) {}
+
+  @Public()
+  @Get('github')
+  @UseGuards(GithubAuthGuard)
   redirectToGithubAuth() {
     return;
   }
 
-  @Get('/github/callback')
-  @UseGuards(AuthGuard('github'))
+  @Public()
+  @Get('github/callback')
+  @UseGuards(GithubAuthGuard)
   loginWithGithubCallback(@Req() request) {
-    return request;
+    return request.user;
+  }
+
+  @Get('user')
+  getUser(@Headers('Authorization') authorization) {
+    const token =
+      typeof authorization === 'string'
+        ? authorization.split(' ')[1]
+        : undefined;
+
+    return this.jwtService.decode(token);
   }
 }
