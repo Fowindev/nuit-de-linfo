@@ -2,7 +2,6 @@ import { Controller, Get, Headers, Req, Res, UseGuards } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { Public } from './decorators/public.decorator';
 import { GithubAuthGuard } from './guards/github.guard';
-import { JwtAuthGuard } from './guards/jwt.guard';
 
 @Controller('auth')
 export class AuthController {
@@ -29,12 +28,7 @@ export class AuthController {
   }
 
   @Get('user')
-  getUser(@Headers('Authorization') authorization) {
-    const token =
-      typeof authorization === 'string'
-        ? authorization.split(' ')[1]
-        : undefined;
-
-    return token;
+  getUser(@Req() request) {
+    return this.jwtService.decode(request.cookies['auth-token']);
   }
 }
