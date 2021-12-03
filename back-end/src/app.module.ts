@@ -5,9 +5,10 @@ import { AuthModule } from './auth/auth.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { getConnectionOptions } from 'typeorm';
 import { ConfigModule } from '@nestjs/config';
+import { JwtAuthGuard } from './auth/guards/jwt.guard';
+import { APP_GUARD } from '@nestjs/core';
 import { AdminModule } from './admin/admin.module';
 import { PeopleModule } from './people/people.module';
-import { APP_GUARD } from '@nestjs/core';
 
 @Module({
   imports: [
@@ -26,7 +27,7 @@ import { APP_GUARD } from '@nestjs/core';
   providers: [
     {
       provide: APP_GUARD,
-      useClass: AuthSessionGuard,
+      useClass: JwtAuthGuard,
     },
   ],
   controllers: [AppController],

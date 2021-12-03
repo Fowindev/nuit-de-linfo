@@ -9,6 +9,9 @@ export class Rescue {
   isCommitment: boolean;
 
   @Column('string')
+  authorProfileUrl: string;
+
+  @Column('string')
   title: string;
 
   @Column({
