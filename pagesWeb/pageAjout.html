@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./csspageAjoutModif.css">
+    <title>Ajouter des informations</title>
+</head>
+<body>
+    <div class="ajoutInfos">
+        <h2>Ajouter des informations</h2>
+        <form action="">
+
+            <label for="typeInfos"></label>
+            <select name="typeInfos" id="selectTypeArt">
+                <option value="sauveteur">Sauveteur</option>
+                <option value="sauvetage">Sauvetage</option>
+            </select>
+            <label for="titre">Titre de l'article</label>
+            <input type="text" id="titre">
+
+            <label class="dontShowSovetage jsSHOW" for="state">Bilan de l'opération</label>
+            <input class="dontShowSovetage jsSHOW" type="text" id="state">
+            <label class="dontShowSovetage jsSHOW" for="dateOperation">Date de l'opération</label>
+            <input class="dontShowSovetage jsSHOW" type="date" id="dateOperation">
+
+            <label for="content">Contenue de l'article</label>
+            <textarea name="content" id="content" cols="30" rows="10"></textarea>
+            <input type="submit" value="Ajouter">
+        </form>
+        <p class="note">À noter : votre proposition devra être valider par un administrateur avant d'être ajouté au site.</p>
+    </div>
+    <script>
+        document.getElementById("selectTypeArt").addEventListener('input', getSelectValue); 
+
+        function getSelectValue(e){
+            console.log(e.target.value)
+            if (e.target.value == "sauvetage") {
+                document.getElementsByClassName("jsSHOW")[0].classList.remove('dontShowSovetage');
+                document.getElementsByClassName("jsSHOW")[1].classList.remove('dontShowSovetage');
+                document.getElementsByClassName("jsSHOW")[2].classList.remove('dontShowSovetage');
+                document.getElementsByClassName("jsSHOW")[3].classList.remove('dontShowSovetage');
+            } else {
+                document.getElementsByClassName("jsSHOW")[0].classList.add('dontShowSovetage');
+                document.getElementsByClassName("jsSHOW")[1].classList.add('dontShowSovetage');
+                document.getElementsByClassName("jsSHOW")[2].classList.add('dontShowSovetage');
+                document.getElementsByClassName("jsSHOW")[3].classList.add('dontShowSovetage');
+            }
+        }
+    </script>
+</body>
+</html>

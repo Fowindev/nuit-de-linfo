@@ -1,0 +1,157 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+}
+
+.main{
+    width: 100%;
+}
+
+.navbar {
+    width: 100%;
+    height: 110px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar-icon{
+    width: 10%;
+    height: 100%;
+    display: block;
+    text-align: center;
+}
+
+.navbar-icon img {
+    margin-top: 35px;
+    width: 30px;
+    text-align: center;
+}
+
+.navbar-link{
+    width: 40%;
+    height: 100%;
+    margin-right: 150px;
+}
+
+.navbar-link li {
+    list-style: none;
+    float: right;
+    margin: 35px 50px 0px 0px;
+    text-align: center;
+}
+
+.navbar-link li img {
+    width: 25px;
+}
+
+.navbar-link li a{
+    font-size: 23px;
+    color: #FFFF;
+    font-family: 'Libre Franklin', sans-serif;
+}
+
+.navbar-right {
+    padding: 0px 0px 40px;
+    margin-top: 100px;
+    border-right: 2px solid #FFFF;
+}
+
+.main-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar-right a{
+    color: #FFFF;
+    margin: 0px 35px;
+    font-family: 'Rosario', sans-serif;
+}
+
+.navbar-right a:hover{
+    color: #FB8F3E;
+}
+
+.navbar-right li{
+    list-style: none;
+    color: #FFFF;
+    font-size: 20px;
+    text-align: end;
+    margin: 25px 0px;
+}
+
+@media screen and (max-width: 1320px){
+
+    .title {
+        margin: 100px 150px;
+        width: 100px;
+        text-align: left;
+    }
+
+    .navbar-link{
+        width: 100%;
+        height: 100%;
+        margin-right: 0px;
+    }
+
+    .navbar-link li {
+        list-style: none;
+        margin: 35px 30px 0px 0px;
+        text-align: center;
+    }
+
+    .navbar-right{
+        margin-top: 100px;
+        border-right: 2px solid #FFFF;
+        margin-right: 130px;
+        height: 250px;
+    }
+
+    .navbar-link li a{
+        font-size: 23px;
+    }
+}
+
+@media screen and (max-width: 860px){
+
+    .main-content {
+        display: block;
+    }
+
+    .title {
+        margin: 80px 0px 20px 120px;
+        width: 100px;
+        text-align: left;
+    }
+
+    .navbar-link{
+        width: 100%;
+        height: 100%;
+        margin-right: 0px;
+    }
+
+    .navbar-link li {
+        list-style: none;
+        margin: 35px 30px 0px 0px;
+        text-align: center;
+    }
+
+    .navbar-link li a{
+        font-size: 23px;
+    }
+
+    .navbar-right{
+        float: left;
+        padding: 40px 0px;
+        margin-top: 40px;
+        border-right: 0px solid #FFFF;
+        border-left: 2px solid #FFFF;
+        margin-left: 100px;
+        margin-right: 0px;
+        height: 250px;
+    }
+}

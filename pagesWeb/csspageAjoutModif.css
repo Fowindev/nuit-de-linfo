@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Libre+Franklin:wght@300&family=Rosario:wght@300&display=swap');
+
+*{
+    background-color:#141313;
+    color: #FFF;
+    font-family: 'Libre Franklin', sans-serif;
+}
+
+body {
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input, textarea, select {
+    border: solid #FFF 1px;
+    border-radius: 10px;
+    padding: 4px;
+    margin: 5px;
+    width: calc(100%-50px);
+}
+
+input[type="submit"] {
+    width: 30%;
+    margin: 15px auto 20px;
+}
+
+label {
+    margin: 5px;
+    padding-top: 10px;
+    font-size: 1.2rem;
+}
+
+h2 {
+    font-size: 1.6rem;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.ajoutInfos {
+    width: 70%;
+    border: solid #FFF 2px;
+    border-radius: 20px;
+    padding: 25px;
+}
+
+.note {
+    font-style: italic;
+    font-size: 0.9rem;
+    padding: 0;
+    margin: 0;
+}
+
+.dontShowSovetage {
+    display: none;
+}
